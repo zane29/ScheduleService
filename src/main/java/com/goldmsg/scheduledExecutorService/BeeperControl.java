@@ -1,4 +1,4 @@
-package com.goldmsg;
+package com.goldmsg.scheduledExecutorService;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
