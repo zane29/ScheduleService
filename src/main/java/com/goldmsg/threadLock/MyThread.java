@@ -7,6 +7,10 @@ package com.goldmsg.threadLock;
  * Date: 2016/12/13
  * Time: 18:01
  */
+
+/**
+ * 线程和锁的使用
+ * */
 class MyThread implements Runnable {
     //两个对象锁
     private Object syncObject1 = new Object();

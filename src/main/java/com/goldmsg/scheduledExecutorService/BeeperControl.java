@@ -12,6 +12,11 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * Date: 2016/12/14
  * Time: 15:19
  */
+
+/**
+ * 计划定时任务Demo
+ *
+ * */
 public class BeeperControl {
     private final ScheduledExecutorService scheduler =
             Executors.newScheduledThreadPool(1);
@@ -24,7 +29,7 @@ public class BeeperControl {
     public void beepForAnHour() {
         final Runnable beeper = new Runnable() {
             public void run() {
-                System.out.println("beep");
+                System.out.println("我是小蜜蜂..beep");
             }
         };
         final ScheduledFuture<?> beeperHandle =

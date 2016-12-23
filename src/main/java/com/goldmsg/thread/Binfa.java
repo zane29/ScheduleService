@@ -14,6 +14,11 @@ import java.util.concurrent.Executors;
  * Time: 14:16
  */
 
+/**
+*
+* 多线程
+* */
+
 public class Binfa {
     public static void main(String[] args) {
         int count = 10;

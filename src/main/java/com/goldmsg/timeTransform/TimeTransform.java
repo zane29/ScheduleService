@@ -34,5 +34,15 @@ public class TimeTransform {
         System.out.println("相差天数"+day);
         System.out.println("相差小时"+hour);
         System.out.println("相差分钟"+minute);
+
+        String nowtime ="2016-11-23 10:15:30";
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date nowdate = format.parse(nowtime);
+        calendar.setTime(nowdate);
+        calendar.add(Calendar.DAY_OF_MONTH,10);
+        System.out.println(format2.format(calendar.getTime()));
+
     }
 }

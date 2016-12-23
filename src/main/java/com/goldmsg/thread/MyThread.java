@@ -6,6 +6,11 @@ package com.goldmsg.thread;
  * Date: 2016/12/16
  * Time: 18:02
  */
+
+/**
+* 多线程
+* */
+
 class MyThread implements Runnable {
     public static void main(String[] args) {
         MyThread myThread = new MyThread();

@@ -19,9 +19,13 @@ public class log4jMain {
             etcDir = etcDir + "/";
         }
         PropertyConfigurator.configure(etcDir + "log4j.properties");
-        int num = 0;
-
-
+        int i = 5;
+        int j = 0;
+        try {
+            int t = i / j;
+        } catch (Exception e) {
+            LOG.error("计算错误",e);
+        }
 
     }
 }
