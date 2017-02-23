@@ -15,7 +15,7 @@ import static java.util.concurrent.TimeUnit.HOURS;
  * Time: 15:19*/
 
 /**
- * 删除D:/server/tem文件夹所有所有超时的文件。
+ * 定时删除D:/server/tem文件夹所有所有超时的文件。
  * 获取D:/server/tem下的所
  *
  * */
@@ -31,7 +31,6 @@ public class ScheduleJob implements Runnable {
         ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
         scheduledThreadPoolExecutor.scheduleAtFixedRate(this, 1, 1, HOURS);//this对象本身
     }
-
     public void run() {
         File file = new File(basePath);
         try {

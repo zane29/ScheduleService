@@ -17,13 +17,13 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * 计划定时任务Demo
  *
  * */
-public class BeeperControl {
+public class BeeperControlJob {
     private final ScheduledExecutorService scheduler =
             Executors.newScheduledThreadPool(1);
 
     public static void main(String[] args) {
-        BeeperControl beeperControl = new BeeperControl();
-        beeperControl.beepForAnHour();
+        BeeperControlJob beeperControlJob = new BeeperControlJob();
+        beeperControlJob.beepForAnHour();
     }
 
     public void beepForAnHour() {
