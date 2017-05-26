@@ -1,39 +1,26 @@
-package com.goldmsg.scheduledExecutorService;//package com.goldmsg.gmmpap.resource.schedulejob;
+package com.goldmsg;
 
 
 import java.io.File;
 import java.util.Date;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-
-import static java.util.concurrent.TimeUnit.HOURS;
-
 
 /**
- * Created with IntelliJ IDEA.
- * User: 周海明
- * Date: 2016/12/14
- * Time: 15:19*/
-
-/**
- * 定时删除D:/server/tem文件夹所有所有超时的文件。
+ * 删除D:/server/tem文件夹所有所有超时的文件。
  * 获取D:/server/tem下的所
- *
  * */
 public class ScheduleJob implements Runnable {
 
     final String basePath = "D:/server/tem";
 
     public ScheduleJob() {
-        init();
     }
 
-    private void init() {
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new ScheduledThreadPoolExecutor(1);
-        scheduledThreadPoolExecutor.scheduleAtFixedRate(this, 1, 1, HOURS);//this对象本身
-    }
     public void run() {
-        File file = new File(basePath);
+        /**
+         *run（）一定要破获第一层异常，如果任何异常没有处理将会终止循环作业！！！！（重要）
+         * */
         try {
+            File file = new File(basePath);
             showAllFiles(file);
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,14 +42,13 @@ public class ScheduleJob implements Runnable {
                         file.delete();
                     }
 
-            if(fs[i].isDirectory()){//如果有文件夹进入文件夹内
-                try{
-                    showAllFiles(fs[i]);//
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-
+                    if (fs[i].isDirectory()) {//如果有文件夹进入文件夹内
+                        try {
+                            showAllFiles(fs[i]);//
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
 
             }
