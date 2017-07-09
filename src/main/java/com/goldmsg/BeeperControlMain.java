@@ -13,12 +13,13 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * JDKDemo
  */
 public class BeeperControlMain implements Runnable {
-   public static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
-
+    public static int corePoolSize = 5;
+    public static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(corePoolSize);
 
     public static void main(String[] args) {
-        BeeperControlMain beeperControl = new BeeperControlMain();
-        executorService.scheduleAtFixedRate(beeperControl, 1, 1, SECONDS);//this对象本身
+        for (int i = 0; i < corePoolSize; i++) {
+            executorService.scheduleAtFixedRate(new BeeperControlMain(), 0, 2, SECONDS);
+        }
     }
 
     public void run() {
@@ -26,12 +27,12 @@ public class BeeperControlMain implements Runnable {
         System.out.println(Thread.currentThread().getName() + "\t我是小蜜蜂..beep\t" + simpleDateFormat.format(new Date()));
         Random random = new Random();
         try {
-            int a = random.nextInt(2);
+            int a = 2;
+//            int a = random.nextInt(2);
             int b = 1;
             System.out.println(b / a);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

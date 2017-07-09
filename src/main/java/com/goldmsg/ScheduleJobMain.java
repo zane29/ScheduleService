@@ -13,8 +13,13 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  * */
 public class ScheduleJobMain {
     public static void main(String[] args) {
-        ScheduleJob scheduleJob=new ScheduleJob();
-        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(5);
-        scheduledExecutorService.scheduleAtFixedRate(scheduleJob, 1, 1, SECONDS);//this对象本身
+        int corePoolSize =5;
+        ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(corePoolSize);
+        /*
+        * 五个线程
+        * */
+        for (int i=0 ;i<corePoolSize;i++) {
+            scheduledExecutorService.scheduleAtFixedRate(new ScheduleJob(), 1, 1, SECONDS);//this对象本身
+        }
     }
 }
